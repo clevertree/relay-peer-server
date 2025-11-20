@@ -1,3 +1,5 @@
+// Load environment variables (.env.local then .env) before anything else
+import './env';
 import 'reflect-metadata';
 import {Sequelize} from 'sequelize-typescript';
 import {Peer} from '@/models/Peer';
