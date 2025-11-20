@@ -1,10 +1,11 @@
 /* eslint-disable @next/next/no-img-element */
+import React from 'react';
 import 'reflect-metadata';
 export const runtime = 'nodejs';
 import { ensureDb } from '@/lib/db';
 import { Peer } from '@/models/Peer';
 
-export default async function Page() {
+export default async function Page(): Promise<React.ReactElement> {
   await ensureDb();
   const peers = await Peer.findAll({ order: [['updatedAt', 'DESC']], limit: 200 });
   return (
@@ -50,7 +51,7 @@ function AddPeerForm() {
   );
 }
 
-async function submitSocket(formData: FormData) {
+async function submitSocket(formData: FormData): Promise<void> {
   'use server';
   const socket = String(formData.get('socket') ?? '').trim();
   if (!socket) return;

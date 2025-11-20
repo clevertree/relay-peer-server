@@ -8,6 +8,7 @@
     "module": "ESNext",
     "moduleResolution": "Bundler",
     "jsx": "preserve",
+  "types": ["react"],
     "allowJs": false,
     "strict": true,
     "noEmit": true,
